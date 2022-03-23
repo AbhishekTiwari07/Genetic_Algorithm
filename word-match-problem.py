@@ -3,7 +3,7 @@ import string
 import numpy as np
 
 class DNA:
-    def __init__(self, size, mutation_rate=0.1):
+    def __init__(self, size, mutation_rate):
         self.mutation_rate = mutation_rate
         self.size = size
         self.phase = ''.join(random.choices(string.ascii_lowercase, k = self.size))
@@ -79,11 +79,12 @@ class Sample:
 
     def checkForSolution(self):
         for sample in self.samples:
+            # print(sample.getPhase())
             if sample.getPhase() == self.target:
                 print("Reached Solution after ", self.gen," : ", self.target)
 
 
 
-population = Sample(target='iamnoob', mutation_rate=0.2)
+population = Sample(target='this', mutation_rate=0.2)
 population.create_sample()
 population.evolution()
